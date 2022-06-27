@@ -6,7 +6,7 @@ https://www.loom.com/share/dada937b8e0c4ae4a7a98f6dac983686
 
 ## **Tests**
 
-	 TEST ON REGISTERED FUNCTION
+	 TESTS ON REGISTERED FUNCTION
 
 - `describe("Registered test section)"` l-19
 
@@ -23,7 +23,7 @@ https://www.loom.com/share/dada937b8e0c4ae4a7a98f6dac983686
 `it("is not whitelisted"`/ l-42 ==> We are testing if the event **VoterRegistered** well trigger
 
 
-	TEST ON VOTING FUNCTION
+	TESTS ON VOTING FUNCTION
 
 - `describe("Voting test section")"` / l-58
 
@@ -39,7 +39,7 @@ https://www.loom.com/share/dada937b8e0c4ae4a7a98f6dac983686
 
 `it("should return event after the vote")`/ l-88 ==> We are testing if the **Voted** event well  trigger
 
-    TEST ON PROPOSAL FUNCTION
+    TESTS ON PROPOSAL FUNCTION
 
 - `describe("check proposal section")"` / l-108
 
@@ -55,7 +55,7 @@ https://www.loom.com/share/dada937b8e0c4ae4a7a98f6dac983686
 
 `it("should return event after proposal")`/ l-130 ==> We are testing if the **ProposalRegistered** event well trigger
 
-    TEST ON TALLY FUNCTION
+    TESTS ON TALLY FUNCTION
 
 - `describe("Tally test section")"` / l-146
 
