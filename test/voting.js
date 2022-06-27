@@ -118,7 +118,7 @@ contract('Voting', accounts => {
             await expectRevert(votingInstance.addProposal("", { from: voter2 }), "You're not a voter");
         });
 
-        // We check that the proposal ius not empty
+        // We check that the proposal is not empty
         it("should not have empty proposal", async () => {   
             await expectRevert(votingInstance.addProposal(
                 "",
