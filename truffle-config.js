@@ -28,10 +28,8 @@ module.exports = {
   //   }, // See options below
    },
 
-  plugin: [
-    // "truffle-plugin-verify",
-    // "truffle-plugin-verify-contracts",
-    // "solidity-coverage"
+  plugins: [
+    "solidity-coverage"
   ],
 
   // Configure your compilers

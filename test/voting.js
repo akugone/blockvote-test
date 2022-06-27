@@ -14,6 +14,8 @@ contract('Voting', accounts => {
 
     let votingInstance;
 
+    /* ====================== TEST ON REGISTERED FUNCTION  ======================= */
+
     describe("Registered test section", function() {
 
         beforeEach(async function () {
@@ -50,6 +52,8 @@ contract('Voting', accounts => {
 
     });
 
+
+    /* ====================== TEST ON VOTING FUNCTION  ======================= */
 
     describe("Voting test section", function () {
 
@@ -99,6 +103,8 @@ contract('Voting', accounts => {
 
     });
 
+    /* ====================== TEST ON PROPOSAL FUNCTION  ======================= */
+
     describe("check proposal section", function () {
 
         beforeEach(async function () {
@@ -134,5 +140,40 @@ contract('Voting', accounts => {
                 );
         });
     });
+
+    /* ====================== TEST ON TALLY FUNCTION  ======================= */
+
+    describe("Tally test section", function () {
+
+        beforeEach(async function () {
+            votingInstance = await Voting.new({ from: owner});
+            await votingInstance.addVoter(voter, { from: owner });
+            await votingInstance.startProposalsRegistering({ from: owner });
+            await votingInstance.addProposal("test", { from: voter }), "You're not a voter";
+            await votingInstance.endProposalsRegistering({ from: owner });
+            await votingInstance.startVotingSession({ from: owner });
+            await votingInstance.setVote(new BN(0), { from: voter });
+        }, "You're not a voter");
+
+        // We check the Tally event trigger
+        it("should return event after tally", async () => {  
+            const storeData = await votingInstance.endVotingSession({ from: owner });
+            //console.log(storeData);
+            
+            expectEvent(
+                    storeData, 
+                    "WorkflowStatusChange",
+                    {   
+                    previousStatus: new BN(3),
+                    newStatus: new BN(4),
+                    }
+                );
+        });
+
+    });
+
+
+
+
 });
 
